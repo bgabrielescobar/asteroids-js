@@ -1,15 +1,15 @@
-import GameConfiguration from './GameConfiguration.js';
-import EventListener from './EventListener.js';
-import {Player, BulletArray} from './GOPlayer.js';
-import GameMechanics from './GameMechanics.js';
+import GameConfiguration from './Configuration/GameConfiguration.js';
+import EventListener from './EventHandler/EventListener.js';
+import {Player, BulletArray} from './GameObjects/GOPlayer.js';
+import GameMechanics from './Utils/GameMechanics.js';
 
     GameConfiguration.canvas.width = GameConfiguration.WINDOW_WIDTH;
     GameConfiguration.canvas.height = GameConfiguration.WINDOW_HEIGHT;
 
     function refresh()
     {
-        GameConfiguration.context.fillStyle = 'black';
-        GameConfiguration.context.fillRect(1, 0, GameConfiguration.WINDOW_HEIGHT, GameConfiguration.WINDOW_HEIGHT);
+        GameConfiguration.context.fillStyle = GameConfiguration.BACKGROUND_COLOR;
+        GameConfiguration.context.fillRect(1, 0, GameConfiguration.WINDOW_WIDTH, GameConfiguration.WINDOW_HEIGHT);
     }
 
     function update(timeLapse = 0)

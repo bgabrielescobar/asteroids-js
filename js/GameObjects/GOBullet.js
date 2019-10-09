@@ -1,5 +1,5 @@
 import GOEntity from './GOEntity.js';
-import GameConfiguration from './GameConfiguration.js';
+import GameConfiguration from '../Configuration/GameConfiguration.js';
 
 let Bullet = new GOEntity();
 
@@ -15,8 +15,8 @@ Bullet.update = function()
 
 Bullet.moveBullet = function ()
 {
-    this.x -= (this.target_x - this.x) / 60;
-    this.y -= (this.target_y - this.y) / 60;
+    this.x -= (this.x - this.target_x);
+    this.y -= (this.y - this.target_y);
 };
 
 Bullet.collisionStage = function ()

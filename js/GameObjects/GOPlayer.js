@@ -1,5 +1,5 @@
 import GOEntity from './GOEntity.js';
-import GameConfiguration from './GameConfiguration.js';
+import GameConfiguration from '../Configuration/GameConfiguration.js';
 import Bullet from './GOBullet.js';
 
 let Player = new GOEntity();

@@ -9,9 +9,10 @@ export default{
     dropCounter: 0,
     isShooting: false,
 
+    BACKGROUND_COLOR: 'black',
     WINDOW_WIDTH: window.innerWidth,
     WINDOW_HEIGHT: window.innerHeight,
-    MOVE_SPEED: 1,
+    MOVE_SPEED: 3,
     TO_DEGREES: Math.PI / 180,
 
     mousePosition:

@@ -1,4 +1,4 @@
-import GameConfiguration from "./GameConfiguration.js";
+import GameConfiguration from "../Configuration/GameConfiguration.js";
 
 function onMouseUpdate(e)
 {
