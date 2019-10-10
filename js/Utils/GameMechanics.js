@@ -6,9 +6,9 @@ function centerObject(entity)
     entity.x = GameConfiguration.WINDOW_WIDTH / 2;
 }
 
-function normalize(val, max, min)
+function magnitude(x, y)
 {
-    return (val - min) / (max - min);
+    return Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
 }
 
-export default {centerObject};
+export default {centerObject, magnitude};

@@ -1,25 +1,29 @@
-import GOEntity from './GOEntity.js';
+import Bullet from './GOEntity.js';
 import GameConfiguration from '../Configuration/GameConfiguration.js';
 
-let Bullet = new GOEntity();
+Bullet.prototype.w = 10;
+Bullet.prototype.h = 10;
+Bullet.prototype.normalizeVelocityY = 0;
+Bullet.prototype.normalizeVelocityX = 0;
+Bullet.prototype.normalizedAngle = 0;
+Bullet.prototype.angleX = 0;
+Bullet.prototype.angleY = 0;
 
-Bullet.w = 10;
-Bullet.h = 10;
-
-Bullet.update = function()
+Bullet.prototype.update = function()
 {
     this.draw();
     this.moveBullet();
     this.collisionStage();
+    console.log('test');
 };
 
-Bullet.moveBullet = function ()
+Bullet.prototype.moveBullet = function ()
 {
-    this.x -= (this.x - this.target_x);
-    this.y -= (this.y - this.target_y);
+    this.x -= this.normalizeVelocityX;
+    this.y -= this.normalizeVelocityY;
 };
 
-Bullet.collisionStage = function ()
+Bullet.prototype.collisionStage = function ()
 {
     if (this.x < 0 || this.x > GameConfiguration.WINDOW_WIDTH || this.y < 0 || this.y > GameConfiguration.WINDOW_HEIGHT){
         this.collisionLimitStage = true;

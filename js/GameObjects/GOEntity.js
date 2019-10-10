@@ -13,6 +13,7 @@ export default function Entity() {
         this.collisionStage = false;
 
         this.update = function(){
+            console.log('test')
         };
 
         this.collisionStage = function() {

@@ -28,7 +28,6 @@ import GameMechanics from './Utils/GameMechanics.js';
                     BulletArray.pop(element);
                 }
             });
-            console.log(BulletArray.length);
             GameConfiguration.dropCounter = 0;
 
         }
