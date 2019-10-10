@@ -1,33 +1,41 @@
-import Bullet from './GOEntity.js';
+import BaseEntity from './GOEntity.js';
 import GameConfiguration from '../Configuration/GameConfiguration.js';
 
-Bullet.prototype.w = 10;
-Bullet.prototype.h = 10;
-Bullet.prototype.normalizeVelocityY = 0;
-Bullet.prototype.normalizeVelocityX = 0;
-Bullet.prototype.normalizedAngle = 0;
-Bullet.prototype.angleX = 0;
-Bullet.prototype.angleY = 0;
+class Bullet extends BaseEntity{
 
-Bullet.prototype.update = function()
-{
-    this.draw();
-    this.moveBullet();
-    this.collisionStage();
-    console.log('test');
-};
-
-Bullet.prototype.moveBullet = function ()
-{
-    this.x -= this.normalizeVelocityX;
-    this.y -= this.normalizeVelocityY;
-};
-
-Bullet.prototype.collisionStage = function ()
-{
-    if (this.x < 0 || this.x > GameConfiguration.WINDOW_WIDTH || this.y < 0 || this.y > GameConfiguration.WINDOW_HEIGHT){
-        this.collisionLimitStage = true;
+    constructor()
+    {
+        super();
+        this.w = 10;
+        this.h = 10;
+        this.normalizeVelocityY = 0;
+        this.normalizeVelocityX = 0;
+        this.normalizedAngle = 0;
+        this.angleX = 0;
+        this.angleY = 0;
     }
-};
 
+
+    moveBullet()
+    {
+        this.x -= this.normalizeVelocityX;
+        this.y -= this.normalizeVelocityY;
+    };
+
+    collisionStage()
+    {
+        if (this.x < 0 || this.x > GameConfiguration.WINDOW_WIDTH || this.y < 0 || this.y > GameConfiguration.WINDOW_HEIGHT){
+            this.collisionLimitStage = true;
+        }
+    };
+
+    update()
+    {
+        this.draw();
+        this.moveBullet();
+        this.collisionStage();
+    };
+
+
+}
 export default Bullet;

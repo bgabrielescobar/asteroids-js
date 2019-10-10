@@ -1,10 +1,12 @@
 import GameConfiguration from './Configuration/GameConfiguration.js';
 import EventListener from './EventHandler/EventListener.js';
-import {Player, BulletArray} from './GameObjects/GOPlayer.js';
+import {PlayerClass, BulletArray} from './GameObjects/GOPlayer.js';
 import GameMechanics from './Utils/GameMechanics.js';
 
     GameConfiguration.canvas.width = GameConfiguration.WINDOW_WIDTH;
     GameConfiguration.canvas.height = GameConfiguration.WINDOW_HEIGHT;
+
+    let Player = new PlayerClass();
 
     function refresh()
     {
@@ -25,7 +27,7 @@ import GameMechanics from './Utils/GameMechanics.js';
             BulletArray.forEach( (element) => {
                 element.update();
                 if (element.collisionLimitStage){
-                    BulletArray.pop(element);
+                    BulletArray.splice(BulletArray.indexOf(element),1);
                 }
             });
             GameConfiguration.dropCounter = 0;

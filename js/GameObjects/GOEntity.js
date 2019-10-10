@@ -1,25 +1,30 @@
 import GameConfiguration from '../Configuration/GameConfiguration.js';
 
-export default function Entity() {
+export default class Entity {
 
-        this.x = 0;
-        this.y = 0;
-        this.w = 50;
-        this.h = 50;
-        this.angle = 0;
-        this.color = 'white';
-        this.target_x = 0;
-        this.target_y = 0;
-        this.collisionStage = false;
+        constructor()
+        {
+            this.x = 0;
+            this.y = 0;
+            this.w = 50;
+            this.h = 50;
+            this.angle = 0;
+            this.color = 'white';
+            this.target_x = 0;
+            this.target_y = 0;
+            this.collisionLimitStage = false;
+        }
 
-        this.update = function(){
-            console.log('test')
+        update()
+        {
         };
 
-        this.collisionStage = function() {
+        collisionStage()
+        {
         };
 
-        this.draw = function(){
+        draw()
+        {
             GameConfiguration.context.fillStyle = this.color;
             GameConfiguration.context.save();
             GameConfiguration.context.translate(this.x, this.y);
@@ -28,7 +33,8 @@ export default function Entity() {
             GameConfiguration.context.restore();
         };
 
-        this.rotationObject = function(target){
+        rotationObject(target)
+        {
             this.angle = Math.atan2( target.y - this.y, target.x - this.x) + GameConfiguration.TO_DEGREES;
         }
 }
