@@ -1,14 +1,17 @@
-import GameConfiguration from '../Configuration/GameConfiguration.js';
+import GameConfiguration from '../../Configuration/GameConfiguration.js';
 
 export default class Entity {
 
-        constructor()
+        x = 0;
+        y = 0;
+        constructor(x, y, w, h, angle, spritePath)
         {
-            this.x = 0;
-            this.y = 0;
-            this.w = 50;
-            this.h = 50;
-            this.angle = 0;
+            this.x = x;
+            this.y = y;
+            this.w = w;
+            this.h = h;
+            this.angle = angle;
+            this.spritePath = spritePath;
             this.color = 'white';
             this.target_x = 0;
             this.target_y = 0;
@@ -33,8 +36,8 @@ export default class Entity {
             GameConfiguration.context.restore();
         };
 
-        rotationObject(target)
+        rotationObject()
         {
-            this.angle = Math.atan2( target.y - this.y, target.x - this.x) + GameConfiguration.TO_DEGREES;
+            this.angle = Math.atan2(this.mousePositionY - this.y, this.mousePositionX - this.x) + GameConfiguration.TO_DEGREES;
         }
 }

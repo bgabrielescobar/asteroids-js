@@ -1,4 +1,4 @@
-import BaseEntity from './GOEntity.js';
+import BaseEntity from './ParentEntity/GOEntity.js';
 import GameConfiguration from '../Configuration/GameConfiguration.js';
 
 class Bullet extends BaseEntity{

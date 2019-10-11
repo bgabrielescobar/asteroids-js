@@ -1,21 +1,25 @@
 import GameConfiguration from './Configuration/GameConfiguration.js';
-import EventListener from './EventHandler/EventListener.js';
-import {PlayerClass, BulletArray} from './GameObjects/GOPlayer.js';
-import GameMechanics from './Utils/GameMechanics.js';
+import Player from './GameObjects/GOPlayer.js';
+import GameFunctions from './Utils/Functions/GameFunctions.js';
+//TODO: Import a scene manager
 
     GameConfiguration.canvas.width = GameConfiguration.WINDOW_WIDTH;
     GameConfiguration.canvas.height = GameConfiguration.WINDOW_HEIGHT;
 
-    let Player = new PlayerClass();
+    let player = new Player();
 
     function refresh()
     {
         GameConfiguration.context.fillStyle = GameConfiguration.BACKGROUND_COLOR;
-        GameConfiguration.context.fillRect(1, 0, GameConfiguration.WINDOW_WIDTH, GameConfiguration.WINDOW_HEIGHT);
+        GameConfiguration.context.fillRect(0, 0, GameConfiguration.WINDOW_WIDTH, GameConfiguration.WINDOW_HEIGHT);
+        //var image = new Image(GameConfiguration.WINDOW_WIDTH, GameConfiguration.WINDOW_HEIGHT);
+        //image.src = '../src/images/backgrounds/black.png';
+        //document.body.appendChild(image);
     }
 
     function update(timeLapse = 0)
     {
+        // FPS counter
         GameConfiguration.deltaTime = timeLapse - GameConfiguration.lastTime;
         GameConfiguration.lastTime = timeLapse;
         GameConfiguration.dropCounter += GameConfiguration.deltaTime;
@@ -23,14 +27,15 @@ import GameMechanics from './Utils/GameMechanics.js';
         if (GameConfiguration.dropCounter >= GameConfiguration.deltaLimit / GameConfiguration.fpsInterval){
 
             refresh();
-            Player.update({target: GameConfiguration.mousePosition});
-            BulletArray.forEach( (element) => {
-                element.update();
-                if (element.collisionLimitStage){
-                    BulletArray.splice(BulletArray.indexOf(element),1);
-                }
-            });
-            GameConfiguration.dropCounter = 0;
+            player.update();
+
+            // BulletArray.forEach( (element) => {
+            //     element.update();
+            //     if (element.collisionLimitStage){
+            //         BulletArray.splice(BulletArray.indexOf(element),1);
+            //     }
+            // });
+            // GameConfiguration.dropCounter = 0;
 
         }
 
@@ -38,7 +43,6 @@ import GameMechanics from './Utils/GameMechanics.js';
         requestAnimationFrame(update);
     }
 
-    EventListener.initEventListener();
-    GameMechanics.centerObject(Player);
+    //GameFunctions.centerObject(player);
 
     window.onload = update();
