@@ -1,25 +1,31 @@
 import BaseEntity from './ParentEntity/GOEntity.js';
 import GameConfiguration from '../Configuration/GameConfiguration.js';
+import Math from "../Utils/Math/Math.js";
 
 class Bullet extends BaseEntity{
 
-    constructor()
+    constructor(x, y, w, h, targetX, targetY, speedBullet, angle)
     {
-        super();
-        this.w = 10;
-        this.h = 10;
-        this.normalizeVelocityY = 0;
-        this.normalizeVelocityX = 0;
-        this.normalizedAngle = 0;
-        this.angleX = 0;
-        this.angleY = 0;
-    }
+        super(x, y, w, h, angle);
 
+        this.targetX = targetX;
+        this.targetY = targetY;
+
+        this.angleX = this.x - this.targetX;
+        this.angleY = this.y - this.targetY;
+
+        this.normalizedAngle = Math.magnitude(this.angleX, this.angleY);
+
+        this.normalizedVelocityX = (this.angleX / this.normalizedAngle) * this.speedBullet;
+        this.normalizedVelocityY = (this.angleY / this.normalizedAngle) * this.speedBullet;
+
+        this.speedBullet = speedBullet;
+    }
 
     moveBullet()
     {
-        this.x -= this.normalizeVelocityX;
-        this.y -= this.normalizeVelocityY;
+        this.x -= this.normalizedVelocityX;
+        this.y -= this.normalizedVelocityY;
     };
 
     collisionStage()
@@ -29,12 +35,18 @@ class Bullet extends BaseEntity{
         }
     };
 
+    collisionEnemy()
+    {
+
+    }
+
     update()
     {
         this.draw();
         this.moveBullet();
         this.collisionStage();
     };
+
 
 
 }

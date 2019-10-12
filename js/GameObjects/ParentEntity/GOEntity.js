@@ -2,19 +2,22 @@ import GameConfiguration from '../../Configuration/GameConfiguration.js';
 
 export default class Entity {
 
-        x = 0;
-        y = 0;
-        constructor(x, y, w, h, angle, spritePath)
+        x;
+        y;
+        w;
+        h;
+        angle;
+
+
+        constructor(x, y, w, h, angle)
         {
             this.x = x;
             this.y = y;
             this.w = w;
             this.h = h;
             this.angle = angle;
-            this.spritePath = spritePath;
+            this.spritePath = 0;
             this.color = 'white';
-            this.target_x = 0;
-            this.target_y = 0;
             this.collisionLimitStage = false;
         }
 
@@ -38,6 +41,6 @@ export default class Entity {
 
         rotationObject()
         {
-            this.angle = Math.atan2(this.mousePositionY - this.y, this.mousePositionX - this.x) + GameConfiguration.TO_DEGREES;
+            this.angle = Math.atan2(this.mousePosition.y - this.y, this.mousePosition.x - this.x) + GameConfiguration.TO_DEGREES;
         }
 }

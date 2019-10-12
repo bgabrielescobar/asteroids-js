@@ -1,30 +1,44 @@
 import BaseEntity from './ParentEntity/GOEntity.js';
 import GameConfiguration from '../Configuration/GameConfiguration.js';
 import Bullet from './GOBullet.js';
-import GameFunctions from "../Utils/Functions/GameFunctions.js";
-import Math from "../Utils/Math/Math.js";
+
+//Todo: Power ups
 
 class Player extends BaseEntity {
 
+    bulletList = [];
 
-    bulletArray = [];
+    moveSpeed;
 
-    moveSpeed = 5;
-    shootSpeed = 10;
+    bulletSpeed;
+    bulletHeight;
+    bulletWeight;
 
-    mousePositionX = 0;
-    mousePositionY = 0;
+    mousePosition = {
+        x: 0,
+        y: 0,
+    };
 
-    keyUp = false;
-    keyDown = false;
-    keyLeft = false;
-    keyRight = false;
+    keyList = {
+        keyUp: false,
+        keyDown: false,
+        keyLeft: false,
+        keyRight: false,
+    };
 
-    isShooting = false;
 
-    constructor()
+    constructor(x, y, w, h)
     {
-        super();
+        super(x, y, w, h);
+
+        this.mousePosition.x = 0;
+        this.mousePosition.y = 0;
+
+        this.moveSpeed = 5;
+        this.bulletSpeed = 10;
+        this.bulletWeight = 5;
+        this.bulletHeight = 5;
+
         this.init();
     }
 
@@ -33,109 +47,109 @@ class Player extends BaseEntity {
         this.initEventListener();
     }
 
-    // @Target - mouse position
     update()
     {
         this.rotationObject();
         this.draw();
         this.keyListener();
-        this.handlerShoot();
+        this.handlerBullets();
     };
 
     keyListener()
     {
-        if (this.keyUp){
+        if (this.keyList.keyUp){
             this.y -= this.moveSpeed;
         }
 
-        if (this.keyDown){
+        if (this.keyList.keyDown){
             this.y += this.moveSpeed;
         }
 
-        if (this.keyLeft){
+        if (this.keyList.keyLeft){
             this.x -= this.moveSpeed;
         }
 
-        if (this.keyRight){
+        if (this.keyList.keyRight){
             this.x += this.moveSpeed;
         }
-        console.log(this.x);
     };
 
-    handlerShoot()
+    // Instance bullet
+    playerShoot()
     {
-        if (this.isShooting){
-            let bulletCopy = new Bullet();
-            bulletCopy.collisionLimitStage = false;
-            bulletCopy.x = this.x;
-            bulletCopy.y = this.y;
-            bulletCopy.angleX = bulletCopy.x - target.x;
-            bulletCopy.angleY = bulletCopy.y - target.y;
-            bulletCopy.normalizedAngle =  Math.magnitude(bulletCopy.angleX, bulletCopy.angleY);
-            bulletCopy.normalizeVelocityX = (bulletCopy.angleX / bulletCopy.normalizedAngle) * this.shootSpeed;
-            bulletCopy.normalizeVelocityY = (bulletCopy.angleY / bulletCopy.normalizedAngle) * this.shootSpeed;
-            bulletCopy.angle = this.angle;
-            isShooting = false;
-            this.bulletArray.push(bulletCopy);
+        this.bulletList.push(
+            new Bullet(this.x, this.y, this.bulletWeight, this.bulletHeight, this.mousePosition.x, this.mousePosition.y, this.bulletSpeed, this.angle)
+        );
+    }
+
+    handlerBullets()
+    {
+        if (this.bulletList.length > 0){
+            this.bulletList.forEach( (element) => {
+                element.update();
+                if (element.collisionLimitStage){
+                    this.bulletList.splice(this.bulletList.indexOf(element),1);
+                }
+            });
         }
     }
 
     initEventListener()
     {
-        GameConfiguration.canvas.addEventListener('mousemove', this.onMouseUpdate, false);
-        GameConfiguration.canvas.addEventListener('mouseenter', this.onMouseUpdate, false);
-        document.addEventListener('click', this.onMouseClick, false);
-        document.addEventListener('keyup', this.onKeyUpListener, false);
-        document.addEventListener('keydown', this.onKeyDownListener, false);
+        GameConfiguration.canvas.addEventListener('mousemove', this.onMouseUpdate.bind(this), false);
+        GameConfiguration.canvas.addEventListener('mouseenter', this.onMouseUpdate.bind(this), false);
+        document.addEventListener('click', this.onMouseClick.bind(this), false);
+        document.addEventListener('keyup', this.onKeyUpListener.bind(this), false);
+        document.addEventListener('keydown', this.onKeyDownListener.bind(this), false);
     }
 
     // Event listener
     onMouseClick()
     {
-        this.isShooting = true;
+        this.playerShoot();
     }
 
     onMouseUpdate(e)
     {
-        this.mousePositionX = e.pageX;
-        this.mousePositionY = e.pageY;
+        this.mousePosition.x = e.pageX;
+        this.mousePosition.y = e.pageY;
     }
 
     onKeyDownListener(e)
     {
         if(e.keyCode === 65){
-            this.keyLeft = true;
+            this.keyList.keyLeft = true;
         }
 
         if(e.keyCode === 87){
-            this.keyUp = true;
+            this.keyList.keyUp = true;
         }
 
         if(e.keyCode === 68){
-            this.keyRight = true;
+            this.keyList.keyRight = true;
         }
 
         if(e.keyCode === 83){
-            this.keyDown = true;
+            this.keyList.keyDown = true;
         }
     }
 
     onKeyUpListener(e)
     {
         if(e.keyCode === 65){
-            this.keyLeft = false;
+            this.keyList.keyLeft = false;
         }
 
         if(e.keyCode === 87){
-            this.keyUp = false;
+            this.keyList.keyUp = false;
         }
 
         if(e.keyCode === 68){
-            this.keyRight = false;
+            this.keyList.keyRight = false;
         }
 
         if(e.keyCode === 83){
-            this.keyDown = false;
+            this.keyList.keyDown = false;
         }
     }
 

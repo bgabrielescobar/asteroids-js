@@ -2,26 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="72b7fc5f-45b1-4470-a2c9-05b806a773d1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/js/GameObjects/GOEnemy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/Utils/Functions/GameFunctions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/Utils/Math/Math.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Configuration/GameConfiguration.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/Configuration/GameConfiguration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/EventHandler/EventListener.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/js/GameObjects/GOBullet.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/GameObjects/GOBullet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/GameObjects/GOEntity.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/GameObjects/ParentEntity/GOEntity.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/GameObjects/GOPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/GameObjects/GOPlayer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Utils/GameMechanics.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/GameObjects/ParentEntity/GOEntity.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/GameObjects/ParentEntity/GOEntity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/Utils/Functions/GameFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/Utils/Functions/GameFunctions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/138-1380495_drax-sprite-2d-video-game-characters-hd-png.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/138-1380495_drax-sprite-2d-video-game-characters-hd-png.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/138-1380495_drax-sprite-2d-video-game-characters-hd-png.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/download.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/download.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/download.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,8 +21,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+            <state relative-caret-position="187">
+              <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
               <folding>
                 <element signature="e#0#69#0" expanded="true" />
               </folding>
@@ -47,29 +33,8 @@
       <file leaf-file-name="GOBullet.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/GameObjects/GOBullet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GOEntity.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/GameObjects/ParentEntity/GOEntity.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GOPlayer.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/GameObjects/GOPlayer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="119" column="32" selection-start-line="119" selection-start-column="32" selection-end-line="119" selection-end-column="32" />
+            <state relative-caret-position="617">
+              <caret line="44" column="15" lean-forward="true" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
               </folding>
@@ -77,20 +42,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameFunctions.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Utils/Functions/GameFunctions.js">
+      <file leaf-file-name="GOPlayer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/GameObjects/GOPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+            <state relative-caret-position="731">
+              <caret line="80" column="86" lean-forward="true" selection-start-line="80" selection-start-column="86" selection-end-line="80" selection-end-column="86" />
+              <folding>
+                <element signature="e#0#52#0" expanded="true" />
+                <element signature="n#!!block;n#keyListener#0;n#Player#0" />
+                <element signature="n#!!block;n#handlerBullets#0;n#Player#0" />
+                <element signature="n#!!block;n#initEventListener#0;n#Player#0" />
+                <element signature="n#!!block;n#onMouseClick#0;n#Player#0" />
+                <element signature="n#!!block;n#onMouseUpdate#0;n#Player#0" />
+                <element signature="n#!!block;n#onKeyDownListener#0;n#Player#0" />
+                <element signature="n#!!block;n#onKeyUpListener#0;n#Player#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameConfiguration.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Configuration/GameConfiguration.js">
+      <file leaf-file-name="GOEntity.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/GameObjects/ParentEntity/GOEntity.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+            <state relative-caret-position="153">
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -137,16 +112,17 @@
         <option value="$PROJECT_DIR$/js/GOPlayer.js" />
         <option value="$PROJECT_DIR$/js/GOBullet.js" />
         <option value="$PROJECT_DIR$/js/GameObjects/GOEntity.js" />
-        <option value="$PROJECT_DIR$/js/GameObjects/GOBullet.js" />
         <option value="$PROJECT_DIR$/js/Utils/GameMechanics.js" />
         <option value="$PROJECT_DIR$/js/Utils/Functions/GameMechanics.js" />
         <option value="$PROJECT_DIR$/js/Utils/Math/Math.js" />
         <option value="$PROJECT_DIR$/js/GameObjects/GOEnemy.js" />
-        <option value="$PROJECT_DIR$/js/Configuration/GameConfiguration.js" />
         <option value="$PROJECT_DIR$/js/EventHandler/EventListener.js" />
-        <option value="$PROJECT_DIR$/js/GameObjects/ParentEntity/GOEntity.js" />
+        <option value="$PROJECT_DIR$/js/Utils/Functions/GameFunctions.js" />
+        <option value="$PROJECT_DIR$/js/Configuration/GameConfiguration.js" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/GameObjects/GOPlayer.js" />
+        <option value="$PROJECT_DIR$/js/GameObjects/GOBullet.js" />
+        <option value="$PROJECT_DIR$/js/GameObjects/ParentEntity/GOEntity.js" />
       </list>
     </option>
   </component>
@@ -187,14 +163,7 @@
               <item name="Asteroids-JS" type="b2602c69:ProjectViewProjectNode" />
               <item name="Asteroids-JS" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Asteroids-JS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Asteroids-JS" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Functions" type="462c0819:PsiDirectoryNode" />
+              <item name="GameObjects" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Asteroids-JS" type="b2602c69:ProjectViewProjectNode" />
@@ -379,7 +348,7 @@
       <updated>1565739518665</updated>
       <workItem from="1565739520029" duration="33580000" />
       <workItem from="1565888722643" duration="26577000" />
-      <workItem from="1570578364812" duration="42735000" />
+      <workItem from="1570578364812" duration="60125000" />
     </task>
     <task id="LOCAL-00001" summary="Restructure project">
       <created>1566260072408</created>
@@ -402,11 +371,18 @@
       <option name="project" value="LOCAL" />
       <updated>1570674080892</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Structure project changed">
+      <created>1570759279722</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1570759279722</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102892000" />
+    <option name="totallyTimeSpent" value="120282000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-1" width="1936" height="1056" extended-state="6" />
@@ -418,7 +394,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.32960895" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49946696" weight="0.32960895" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.078891255" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13539445" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -432,27 +408,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32960895" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053304" side_tool="true" weight="0.32960895" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49946696" weight="0.32960895" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -489,11 +444,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Restructure project" />
     <MESSAGE value="Shoot fixed, try to create game objects" />
-    <option name="LAST_COMMIT_MESSAGE" value="Shoot fixed, try to create game objects" />
+    <MESSAGE value="Structure project changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Structure project changed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -572,13 +528,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="570" column="4" selection-start-line="570" selection-start-column="4" selection-end-line="570" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -610,41 +559,31 @@
     <entry file="file://$PROJECT_DIR$/js/EventHandler/EventListener.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Configuration/GameConfiguration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/Utils/Functions/GameFunctions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/GameObjects/ParentEntity/GOEntity.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/GameObjects/GOBullet.js">
+    <entry file="file://$PROJECT_DIR$/js/Configuration/GameConfiguration.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="1133" column="4" selection-start-line="1133" selection-start-column="4" selection-end-line="1133" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        <state relative-caret-position="187">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
           <folding>
             <element signature="e#0#69#0" expanded="true" />
           </folding>
@@ -653,11 +592,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/GameObjects/GOPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="119" column="32" selection-start-line="119" selection-start-column="32" selection-end-line="119" selection-end-column="32" />
+        <state relative-caret-position="731">
+          <caret line="80" column="86" lean-forward="true" selection-start-line="80" selection-start-column="86" selection-end-line="80" selection-end-column="86" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+            <element signature="n#!!block;n#keyListener#0;n#Player#0" />
+            <element signature="n#!!block;n#handlerBullets#0;n#Player#0" />
+            <element signature="n#!!block;n#initEventListener#0;n#Player#0" />
+            <element signature="n#!!block;n#onMouseClick#0;n#Player#0" />
+            <element signature="n#!!block;n#onMouseUpdate#0;n#Player#0" />
+            <element signature="n#!!block;n#onKeyDownListener#0;n#Player#0" />
+            <element signature="n#!!block;n#onKeyUpListener#0;n#Player#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/GameObjects/GOBullet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="44" column="15" lean-forward="true" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
           <folding>
             <element signature="e#0#52#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/GameObjects/ParentEntity/GOEntity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
         </state>
       </provider>
     </entry>

@@ -6,6 +6,4 @@ function centerObject(entity)
     entity.x = GameConfiguration.WINDOW_WIDTH / 2;
 }
 
-
-
 export default {centerObject};
