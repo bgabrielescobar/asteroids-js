@@ -2,7 +2,7 @@ import BaseEntity from './ParentEntity/GOEntity.js';
 import GameConfiguration from '../Configuration/GameConfiguration.js';
 import Bullet from './GOBullet.js';
 
-//Todo: Power ups
+// Todo: Power ups
 
 class Player extends BaseEntity {
 
@@ -27,17 +27,17 @@ class Player extends BaseEntity {
     };
 
 
-    constructor(x, y, w, h)
+    constructor(x, y, w, h, sprite)
     {
-        super(x, y, w, h);
+        super(x, y, w, h, 0, sprite);
 
         this.mousePosition.x = 0;
         this.mousePosition.y = 0;
 
         this.moveSpeed = 5;
         this.bulletSpeed = 10;
-        this.bulletWeight = 5;
-        this.bulletHeight = 5;
+        this.bulletWeight = 200;
+        this.bulletHeight = 200;
 
         this.init();
     }
@@ -50,9 +50,9 @@ class Player extends BaseEntity {
     update()
     {
         this.rotationObject();
-        this.draw();
         this.keyListener();
         this.handlerBullets();
+        this.draw();
     };
 
     keyListener()
@@ -78,19 +78,37 @@ class Player extends BaseEntity {
     playerShoot()
     {
         this.bulletList.push(
-            new Bullet(this.x, this.y, this.bulletWeight, this.bulletHeight, this.mousePosition.x, this.mousePosition.y, this.bulletSpeed, this.angle)
+            new Bullet(
+                this.x,
+                this.y,
+                this.bulletWeight,
+                this.bulletHeight,
+                this.mousePosition.x,
+                this.mousePosition.y,
+                this.bulletSpeed,
+                this.angle,
+                {
+                    image: GameConfiguration.resourcesPath.atlasSprite[0].image,
+                    imgPositionX: 422,
+                    imgPositionY: 834,
+                    imgWidth: 37,
+                    imgHeight: 13,
+                    sizeWidth: this.bulletWeight,
+                    sizeHeight: this.bulletHeight,
+                }
+            )
         );
     }
 
     handlerBullets()
     {
-        if (this.bulletList.length > 0){
-            this.bulletList.forEach( (element) => {
-                element.update();
-                if (element.collisionLimitStage){
-                    this.bulletList.splice(this.bulletList.indexOf(element),1);
+        if (this.bulletList.length > 0) {
+            for ( let i = this.bulletList.length - 1 ; i >= 0 ; i--){
+                this.bulletList[i].update();
+                if (this.bulletList[i].collisionLimitStage){
+                    this.bulletList.splice(0,1);
                 }
-            });
+            }
         }
     }
 

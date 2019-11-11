@@ -4,22 +4,23 @@ import Math from "../Utils/Math/Math.js";
 
 class Bullet extends BaseEntity{
 
-    constructor(x, y, w, h, targetX, targetY, speedBullet, angle)
+    constructor(x, y, w, h, targetX, targetY, speedBullet, angle, image)
     {
-        super(x, y, w, h, angle);
+        super(x, y, w, h, angle, image);
 
         this.targetX = targetX;
         this.targetY = targetY;
 
-        this.angleX = this.x - this.targetX;
-        this.angleY = this.y - this.targetY;
+        this.angleX = x - this.targetX;
+        this.angleY = y - this.targetY;
 
         this.normalizedAngle = Math.magnitude(this.angleX, this.angleY);
+
+        this.speedBullet = speedBullet;
 
         this.normalizedVelocityX = (this.angleX / this.normalizedAngle) * this.speedBullet;
         this.normalizedVelocityY = (this.angleY / this.normalizedAngle) * this.speedBullet;
 
-        this.speedBullet = speedBullet;
     }
 
     moveBullet()
