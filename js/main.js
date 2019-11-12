@@ -1,3 +1,3 @@
-import Run from './Game/Game.js';
+import SceneManager from './Managers/SceneHandler/SceneManager.js';
 
-window.onload = Run();
+window.onload = SceneManager.run();

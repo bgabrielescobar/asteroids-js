@@ -23,6 +23,11 @@ class ResourceManager {
 
     }
 
+    static loadXMLfromAtlasSprite()
+    {
+        
+    }
+
     static loadResources() {
         this.loadBackgrounds();
         this.loadAtlasSprite();

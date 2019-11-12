@@ -2,14 +2,21 @@ import BaseEntity from './ParentEntity/GOEntity.js';
 import GameConfiguration from '../Configuration/GameConfiguration.js';
 import Bullet from './GOBullet.js';
 
-// Todo: Power ups
-
+/**
+ * Todo list:
+ * Power ups
+ * Life reduction
+ * Game over screen
+ */
 class Player extends BaseEntity {
 
+    // Contain an every instance object from the bullet
     bulletList = [];
 
+    // Speed of the space ship
     moveSpeed;
 
+    //
     bulletSpeed;
     bulletHeight;
     bulletWeight;
@@ -36,8 +43,8 @@ class Player extends BaseEntity {
 
         this.moveSpeed = 5;
         this.bulletSpeed = 10;
-        this.bulletWeight = 200;
-        this.bulletHeight = 200;
+        this.bulletWeight = 5;
+        this.bulletHeight = 5;
 
         this.init();
     }
@@ -77,6 +84,7 @@ class Player extends BaseEntity {
     // Instance bullet
     playerShoot()
     {
+        // ToDo: Change this xd
         this.bulletList.push(
             new Bullet(
                 this.x,

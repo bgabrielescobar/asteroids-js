@@ -9,14 +9,6 @@ let update;
 let refresh;
 let player;
 
-// To SceneManager
-window.onresize = function ()
-{
-    GameConfiguration.WINDOW_WIDTH =  window.innerWidth;
-    GameConfiguration.WINDOW_HEIGHT = window.innerHeight;
-    GameConfiguration.canvas.width = GameConfiguration.WINDOW_WIDTH;
-    GameConfiguration.canvas.height = GameConfiguration.WINDOW_HEIGHT;
-};
 
 refresh = function()
 {
