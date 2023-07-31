@@ -2,7 +2,7 @@
 
 # Description
 
-Asteroid Game to practicing JS, using only JS HTML and CSS.
+Asteroid Game using only JS HTML and CSS.
 
 # Controllers
 
