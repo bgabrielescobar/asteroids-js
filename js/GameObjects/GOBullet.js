@@ -36,11 +36,6 @@ class Bullet extends BaseEntity{
         }
     };
 
-    collisionEnemy()
-    {
-
-    }
-
     update()
     {
         this.draw();

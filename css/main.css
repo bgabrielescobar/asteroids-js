@@ -1,4 +1,36 @@
 body{
     margin: 0;
     overflow: hidden;
+    font-family: "Gotham", sans-serif;
+}
+
+@font-face {
+    font-family: "Gotham";
+}
+
+p {
+    font-size: 42px;
+    color:white;
+}
+
+.score {
+    display: inline-block;
+    left:45%;
+    position: absolute;
+    user-select: none;
+}
+
+.game-over{
+    display: none;
+    top: 30%;
+    right: 35%;
+    position: absolute;
+    user-select: none;
+}
+.game-over-title{
+    font-size: 78px;
+    margin-left: 12%;
+}
+.game-over-description{
+
 }

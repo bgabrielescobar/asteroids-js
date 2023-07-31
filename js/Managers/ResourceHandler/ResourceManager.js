@@ -8,10 +8,10 @@ class ResourceManager {
             GameConfiguration.resourcesPath.backgrounds[i].image = new Image();
             GameConfiguration.resourcesPath.backgrounds[i].image.src = GameConfiguration.resourcesPath.backgrounds[i].path;
         }
-        this.changeBackground();
+        this.selectBackground();
     }
 
-    static changeBackground()
+    static selectBackground()
     {
         GameConfiguration.backgroundSelected = GameConfiguration.resourcesPath.backgrounds[Math.floor((Math.random() * 4))].image;
     }

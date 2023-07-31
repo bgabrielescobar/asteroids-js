@@ -1,25 +1,22 @@
 import BaseEntity from './ParentEntity/GOEntity.js';
 import GameConfiguration from '../Configuration/GameConfiguration.js';
 import Bullet from './GOBullet.js';
+import SceneManager from "../Managers/SceneHandler/SceneManager.js";
 
-/**
- * Todo list:
- * Power ups
- * Life reduction
- * Game over screen
- */
 class Player extends BaseEntity {
 
     // Contain an every instance object from the bullet
     bulletList = [];
 
-    // Speed of the space ship
+    // Speed of the spaceship
     moveSpeed;
 
-    //
     bulletSpeed;
     bulletHeight;
     bulletWeight;
+
+    gameOver = false;
+    resetGame = false;
 
     mousePosition = {
         x: 0,
@@ -33,6 +30,7 @@ class Player extends BaseEntity {
         keyRight: false,
     };
 
+    enemyList = []
 
     constructor(x, y, w, h, sprite)
     {
@@ -58,7 +56,7 @@ class Player extends BaseEntity {
     {
         this.rotationObject();
         this.keyListener();
-        this.handlerBullets();
+        this.handlerEnemyCollision();
         this.draw();
     };
 
@@ -84,7 +82,6 @@ class Player extends BaseEntity {
     // Instance bullet
     playerShoot()
     {
-        // ToDo: Change this xd
         this.bulletList.push(
             new Bullet(
                 this.x,
@@ -108,31 +105,88 @@ class Player extends BaseEntity {
         );
     }
 
-    handlerBullets()
+    handlerEnemyCollision()
     {
         if (this.bulletList.length > 0) {
             for ( let i = this.bulletList.length - 1 ; i >= 0 ; i--){
                 this.bulletList[i].update();
                 if (this.bulletList[i].collisionLimitStage){
-                    this.bulletList.splice(0,1);
+                    this.bulletList.splice(i,1);
+                }
+                for (let x = this.enemyList.length - 1 ; x >= 0 ; x--) {
+                    let collisionBullet = this.enemyList[x].collisionBullet(this.bulletList[i]);
+                    if (collisionBullet) {
+
+                        this.bulletList.splice(i,1);
+                        this.enemyList[x].getDamage();
+
+                        if (this.enemyList[x].life <= 0) {
+
+                            this.addScore(this.enemyList[x].scoreByEliminate);
+                            this.enemyList.splice(x,1);
+
+                            GameConfiguration.soundExplosionAsteroid.currentTime = 0;
+                            GameConfiguration.soundExplosionAsteroid.play();
+
+                            return true;
+                        }
+                        this.addScore(this.enemyList[x].scoreByHit);
+                    }
                 }
             }
         }
+        this.enemyList.forEach( el => {
+            let collisionPlayer = el.collisionPlayer(this);
+            if (collisionPlayer) {
+                GameConfiguration.gameOverTag.style.display = "inline-block";
+                GameConfiguration.soundGameOver.play();
+                GameConfiguration.soundPlayerShot.volume = 0;
+                this.gameOver = true;
+            }
+        })
     }
 
     initEventListener()
     {
-        GameConfiguration.canvas.addEventListener('mousemove', this.onMouseUpdate.bind(this), false);
-        GameConfiguration.canvas.addEventListener('mouseenter', this.onMouseUpdate.bind(this), false);
-        document.addEventListener('click', this.onMouseClick.bind(this), false);
-        document.addEventListener('keyup', this.onKeyUpListener.bind(this), false);
-        document.addEventListener('keydown', this.onKeyDownListener.bind(this), false);
+        this.handleMouseUpdate = this.onMouseUpdate.bind(this);
+        this.handleMouseClick = this.onMouseClick.bind(this);
+        this.handleKeyUpListener = this.onKeyUpListener.bind(this);
+        this.handleKeyDownListener = this.onKeyDownListener.bind(this);
+
+        GameConfiguration.canvas.addEventListener('mousemove', this.handleMouseUpdate, false);
+        GameConfiguration.canvas.addEventListener('mouseenter', this.handleMouseUpdate, false);
+        document.addEventListener('click', this.handleMouseClick, false);
+        document.addEventListener('keyup', this.handleKeyUpListener, false);
+        document.addEventListener('keydown', this.handleKeyDownListener, false);
+
+    }
+
+    removeEventListener()
+    {
+        GameConfiguration.canvas.removeEventListener('mousemove', this.handleMouseUpdate, false);
+        GameConfiguration.canvas.removeEventListener('mouseenter', this.handleMouseUpdate, false);
+        document.removeEventListener('click', this.handleMouseClick, false);
+        document.removeEventListener('keyup', this.handleKeyUpListener, false);
+        document.removeEventListener('keydown', this.handleKeyDownListener, false);
+    }
+
+    addEnemy(enemy)
+    {
+        this.enemyList = enemy;
+    }
+
+    addScore(score)
+    {
+        let paddedScore = parseInt(GameConfiguration.tagScore.textContent, 10) + score;
+        GameConfiguration.tagScore.textContent = paddedScore.toString().padStart(8, '0');
     }
 
     // Event listener
     onMouseClick()
     {
+        GameConfiguration.soundPlayerShot.currentTime = 0;
         this.playerShoot();
+        GameConfiguration.soundPlayerShot.play();
     }
 
     onMouseUpdate(e)
@@ -158,6 +212,12 @@ class Player extends BaseEntity {
         if(e.keyCode === 83){
             this.keyList.keyDown = true;
         }
+
+        if (e.key === "Escape") {
+            this.resetGame = true;
+            SceneManager.run();
+            GameConfiguration.gameOverTag.style.display = "none";
+        }
     }
 
     onKeyUpListener(e)
@@ -178,9 +238,6 @@ class Player extends BaseEntity {
             this.keyList.keyDown = false;
         }
     }
-
-
-
 }
 
 export default Player;
