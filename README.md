@@ -1,16 +1,16 @@
-# asteroids-js
+# Asteroids JS Clone
 
-# Description
+Asteroid Game using only **HTML**, **CSS**, and **JavaScript**.
 
-Asteroid Game using only JS HTML and CSS.
+## How to Play
+- Use **W** = Up, **S** = Down, **A** = Left, **D** = Right to control the spaceship.
+- Use the **Mouse** to rotate the ship.
+- **Mouse Click** to shoot asteroids and avoid collisions.
 
-# Controllers
+## Features
+- Pure HTML, CSS, and JavaScript with TypeScript integration.
+- Smooth animations and responsive controls.
 
-W = UP
-S = DOWN
-A = LEFT
-D = RIGHT
+## License
+This project is licensed under the [MIT License](LICENSE).
 
-MOUSE = Rotation ship
-
-MOUSE CLICK = Shot
